@@ -1,7 +1,8 @@
 import express from "express";
 const app = express();
+import type { Request, Response } from "express";
 
-app.get("/", (req, res) => {
+app.get("/", (req : Request, res : Response) => {
     res.send("Hi");
 })
 
