@@ -22,10 +22,15 @@
   "homepage": "https://github.com/Rhythmdoshi31/LockedIn#readme",
   "devDependencies": {
     "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@google/genai": "^1.19.0",
+    "@google/generative-ai": "^0.24.1",
     "@types/express": "^5.0.3",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0"
   }
 }
