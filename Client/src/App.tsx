@@ -66,130 +66,190 @@ export default function App() {
   };
 
   return (
-    <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-      <Box sx={{ mb: 4, textAlign: 'center' }}>
-        <Typography 
-          variant="h3" 
-          component="h1" 
-          gutterBottom 
-          fontWeight="bold"
-          sx={{
-            textTransform: 'uppercase',
-            letterSpacing: '0.1em',
-            color: '#1a237e',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.1)'
-          }}
-        >
-          F**K JOB APPLICATIONS
-        </Typography>
-        <Typography 
-          variant="h6" 
-          color="text.secondary" 
-          paragraph
-          sx={{
-            maxWidth: '600px',
-            margin: '0 auto',
-            fontSize: '1.2rem'
-          }}
-        >
-          Have somewhere to apply? We'll make cover letters and resume tips from it.
-        </Typography>
-      </Box>
-
-      <Paper 
-        elevation={3} 
-        sx={{ 
-          p: 4, 
-          mb: 4,
-          borderRadius: 2,
-          backdropFilter: 'blur(10px)',
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%'
+      }}
+    >
+      <Container 
+        maxWidth="md" 
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 3,
+          py: 3,
+          mx: 'auto'
         }}
       >
-        <Box component="form" noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="jobLink"
-            label="Paste any job posting URL..."
-            name="jobLink"
-            autoFocus
-            value={jobLink}
-            onChange={(e) => dispatch(setJobLink(e.target.value))}
-          />
-
-          <Box sx={{ mt: 3, mb: 2 }}>
-            <Button
-              component="label"
-              variant="outlined"
-              startIcon={<CloudUpload />}
-              sx={{ width: '100%', py: 1.5 }}
-            >
-              Upload Resume (PDF)
-              <VisuallyHiddenInput
-                type="file"
-                accept=".pdf"
-                onChange={handleFileChange}
-              />
-            </Button>
-            {resume && (
-              <Typography variant="body2" color="success.main" sx={{ mt: 1 }}>
-                Selected file: {resume.name}
-              </Typography>
-            )}
-            {fileError && (
-              <Typography variant="body2" color="error" sx={{ mt: 1 }}>
-                {fileError}
-              </Typography>
-            )}
-          </Box>
-
-          <Button
-            fullWidth
-            variant="contained"
-            onClick={handleSubmit}
-            disabled={!jobLink || !resume || isLoading}
-            sx={{
-              mt: 2,
-              mb: 2,
-              py: 1.5,
-              bgcolor: 'success.main',
-              '&:hover': {
-                bgcolor: 'success.dark',
-              },
+        <Box sx={{ mb: 4 }}>
+          <Typography 
+            variant="h3" 
+            component="h1" 
+            gutterBottom 
+            align="center" 
+            fontWeight="bold"
+            sx={{ 
+              color: 'primary.main',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
             }}
           >
-            {isLoading ? (
-              <CircularProgress size={24} color="inherit" />
-            ) : (
-              'GENERATE'
-            )}
-          </Button>
-
-          {error && (
-            <Alert severity="error" onClose={() => dispatch(resetForm())}>
-              {error}
-            </Alert>
-          )}
-
-          {success && (
-            <Alert severity="success" onClose={() => dispatch(resetForm())}>
-              Your cover letter has been generated successfully!
-            </Alert>
-          )}
+            F**K JOB APPLICATIONS
+          </Typography>
+          <Typography 
+            variant="h6" 
+            align="center" 
+            color="text.secondary" 
+            paragraph
+            sx={{ color: 'grey.400' }}
+          >
+            Have somewhere to apply? We'll make cover letters and resume tips from it.
+          </Typography>
         </Box>
-      </Paper>
 
-      <Typography
-        variant="body2"
-        align="center"
-        color="text.secondary"
-        sx={{ mt: 4 }}
-      >
-        Currently supporting PDF resumes only.
-      </Typography>
-    </Container>
+        <Paper 
+          elevation={6} 
+          sx={{ 
+            p: 4,
+            background: 'rgba(30,30,30,0.9)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            width: '100%',
+            maxWidth: '100%'
+          }}
+        >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="jobLink"
+              label="Paste any job posting URL..."
+              name="jobLink"
+              autoFocus
+              value={jobLink}
+              onChange={(e) => dispatch(setJobLink(e.target.value))}
+              sx={{
+                input: { color: 'white' },
+                label: { color: 'grey.400' },
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'rgba(255, 255, 255, 0.23)',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'rgba(255, 255, 255, 0.4)',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'primary.main',
+                  },
+                },
+              }}
+            />
+
+            <Box sx={{ mt: 3, mb: 2 }}>
+              <Button
+                component="label"
+                variant="outlined"
+                startIcon={<CloudUpload />}
+                sx={{ 
+                  width: '100%', 
+                  py: 1.5,
+                  color: 'primary.main',
+                  borderColor: 'rgba(255, 255, 255, 0.23)',
+                  '&:hover': {
+                    borderColor: 'primary.main',
+                    background: 'rgba(33, 150, 243, 0.08)'
+                  }
+                }}
+              >
+                Upload Resume (PDF)
+                <VisuallyHiddenInput
+                  type="file"
+                  accept=".pdf"
+                  onChange={handleFileChange}
+                />
+              </Button>
+              {resume && (
+                <Typography variant="body2" color="success.main" sx={{ mt: 1 }}>
+                  Selected file: {resume.name}
+                </Typography>
+              )}
+              {fileError && (
+                <Typography variant="body2" color="error" sx={{ mt: 1 }}>
+                  {fileError}
+                </Typography>
+              )}
+            </Box>
+
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={handleSubmit}
+              disabled={!jobLink || !resume || isLoading}
+              sx={{
+                mt: 2,
+                mb: 2,
+                py: 1.5,
+                bgcolor: 'primary.main',
+                color: 'white',
+                '&:hover': {
+                  bgcolor: 'primary.dark',
+                },
+                '&:disabled': {
+                  bgcolor: 'rgba(255, 255, 255, 0.12)',
+                  color: 'rgba(255, 255, 255, 0.3)'
+                }
+              }}
+            >
+              {isLoading ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                'GENERATE'
+              )}
+            </Button>
+
+            {error && (
+              <Alert 
+                severity="error" 
+                onClose={() => dispatch(resetForm())}
+                sx={{
+                  '& .MuiAlert-message': {
+                    color: 'error.main'
+                  }
+                }}
+              >
+                {error}
+              </Alert>
+            )}
+
+            {success && (
+              <Alert 
+                severity="success" 
+                onClose={() => dispatch(resetForm())}
+                sx={{
+                  '& .MuiAlert-message': {
+                    color: 'success.main'
+                  }
+                }}
+              >
+                Your cover letter has been generated successfully!
+              </Alert>
+            )}
+          </Box>
+        </Paper>
+
+        <Typography
+          variant="body2"
+          align="center"
+          color="text.secondary"
+          sx={{ mt: 4 }}
+        >
+          Currently supporting PDF resumes only.
+        </Typography>
+      </Container>
+    </Box>
   );
 }
