@@ -8,7 +8,7 @@ async function generatePrompt(prompt) {
         const model = ai.getGenerativeModel({ model: "gemini-2.5-flash" });
         const response = await model.generateContent(prompt);
         const output = response.response?.candidates?.[0]?.content?.parts?.[0]?.text ??
-            "⚠️ No response from AI";
+            " No response from AI";
         console.log("AI Output:", output);
         return output;
     }
@@ -18,3 +18,4 @@ async function generatePrompt(prompt) {
     }
 }
 export default generatePrompt;
+//# sourceMappingURL=ai.service.js.map

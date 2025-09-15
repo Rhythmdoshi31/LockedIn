@@ -1,1 +1,1 @@
-{"version":3,"file":"prompts.route.d.ts","sourceRoot":"","sources":["../../src/routes/prompts.route.ts"],"names":[],"mappings":""}
+{"version":3,"file":"prompts.route.d.ts","sourceRoot":"","sources":["../../src/routes/prompts.route.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAgC,MAAM,SAAS,CAAC;AAG/D,QAAA,MAAM,MAAM,EAAE,MAAiB,CAAC;AAoBhC,eAAe,MAAM,CAAC"}

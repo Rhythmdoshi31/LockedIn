@@ -1,7 +1,7 @@
-import { Router, type Request, type Response } from "express";
+import { Router, type Request, type Response  } from "express";
 import generatePrompt from "../service/ai.service.js";
 
-const router = Router();
+const router: Router = Router();
 router.post("/", async (req: Request, res: Response) => {
   try {
     console.log("Incoming body:", req.body);

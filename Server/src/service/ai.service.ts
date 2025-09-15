@@ -15,7 +15,7 @@ const ai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 
     const output =
       response.response?.candidates?.[0]?.content?.parts?.[0]?.text ??
-      "⚠️ No response from AI";
+      " No response from AI";
 
     console.log("AI Output:", output);
     return output;

@@ -1,7 +1,7 @@
-import express from "express";
+import express, {} from "express";
+const app = express();
 import serverRouter from "./routes/server.route.js";
 import promptsRouter from "./routes/prompts.route.js";
-const app = express();
 // Middleware
 app.use(express.json());
 // Use Router
@@ -12,3 +12,4 @@ app.listen(PORT, () => {
     console.log(`✅ Server is running on port ${PORT}`);
 });
 export default app;
+//# sourceMappingURL=app.js.map

@@ -1,7 +1,8 @@
-import express, { Application } from "express";
+import express, {type Express} from "express";
+const app: Express = express();
+import type { Request, Response } from "express";
 import serverRouter from "./routes/server.route.js";
 import promptsRouter from "./routes/prompts.route.js";
-const app: Application = express();
 
 // Middleware
 app.use(express.json());
