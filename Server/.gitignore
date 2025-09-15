@@ -24,6 +24,10 @@ Thumbs.db
 *.log
 npm-debug.log*
 
+*.seed
+
+
+
 # Runtime data
 *.pid
-*.seed
+
