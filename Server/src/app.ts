@@ -1,9 +1,19 @@
-import express from "express";
-const app = express();
+import express, {type Express} from "express";
+const app: Express = express();
 import type { Request, Response } from "express";
+import serverRouter from "./routes/server.route.js";
+import promptsRouter from "./routes/prompts.route.js";
 
-app.get("/", (req : Request, res : Response) => {
-    res.send("Hi");
-})
+// Middleware
+app.use(express.json());
 
-app.listen(3000);
+// Use Router
+app.use("/api", serverRouter);
+app.use("/api/prompts", promptsRouter);
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+});
+
+export default app;
