@@ -8,7 +8,7 @@ router.post("/", async (req: Request, res: Response) => {
 
     // destructure properly
     const { prompt } = req.body;
-    console.log("Received prompt:", prompt);
+    // console.log("Received prompt:", prompt);
 
     if (!prompt) {
       return res.status(400).json({ error: "Prompt is required" });
